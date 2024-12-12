@@ -1,16 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.eventValidation = void 0;
+exports.userValidation = void 0;
 const express_validator_1 = require("express-validator");
-const eventValidation = () => {
+const userValidation = () => {
     return [
         (0, express_validator_1.check)("name").notEmpty().withMessage("El nombre del evento es obligatorio"),
         (0, express_validator_1.check)("name").isLength({ min: 3 }).withMessage("El nombre del evento debe tener al menos 3 letras"),
         (0, express_validator_1.check)("name").isLength({ max: 20 }).withMessage("El nombre del evento debe tener menos de 20 letras"),
-        (0, express_validator_1.check)("description").notEmpty().withMessage("La descripcion es obligatoria"),
-        (0, express_validator_1.check)("description").isLength({ max: 50 }).withMessage("La descripcion debe tener menos de 50 letras"),
-        (0, express_validator_1.check)("date").notEmpty().withMessage("La fecha es obligatoria"),
-        (0, express_validator_1.check)("addres").notEmpty().withMessage("La direccion es obligatoria"),
+        (0, express_validator_1.check)("password").notEmpty().withMessage("La contraseña es obligatoria"),
+        (0, express_validator_1.check)("password").isLength({ min: 4 }).withMessage("La contraseña debe tener menos de 4 caracteres"),
         (req, res, next) => {
             const errors = (0, express_validator_1.validationResult)(req);
             if (!errors.isEmpty()) {
@@ -25,4 +23,4 @@ const eventValidation = () => {
         }
     ];
 };
-exports.eventValidation = eventValidation;
+exports.userValidation = userValidation;
