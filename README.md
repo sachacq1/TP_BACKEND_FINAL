@@ -64,10 +64,10 @@ Proyecto de una api de Eventos, backend,  que nos permite gestionar una base de 
 | Método | Endpoint          | Descripción                          |
 |--------|-------------------|--------------------------------------|
 | GET    | `/api/events`        | Obtiene todas las películas.         |
-| GET    | `/api/events/:id`    | Obtiene una película por su ID.      |
-| POST   | `/api/events`        | Crea una nueva película (autenticado).|
-| PUT    | `/api/events/:id`    | Actualiza una película (autenticado).|
-| DELETE | `/api/events/:id`    | Elimina una película (autenticado).  |
+| GET    | `/api/events/:id`    | Obtiene un evento por su ID.      |
+| POST   | `/api/events`        | Crea una nuevo evento (autenticado).|
+| PATCH    | `/api/events/:id`    | Actualiza un evento (autenticado).|
+| DELETE | `/api/events/:id`    | Elimina un evento (autenticado).  |
 
 
 ## Seguridad
