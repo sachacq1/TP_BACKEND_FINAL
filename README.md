@@ -2,7 +2,9 @@
 
 ## Descripción
 
-Proyecto de una api de Eventos, backend,  que nos permite gestionar una base de datos de eventos y usuarios.  
+Esta API permite gestionar eventos, brindando funcionalidades para agregar, actualizar, consultar y eliminar eventos en una base de datos MongoDB. Diseñada pensando en la eficiencia y la facilidad de uso, es una herramienta ideal para administrar información detallada sobre eventos de forma rápida y segura.
+
+ 
 
 ## Características
 
@@ -63,10 +65,10 @@ Proyecto de una api de Eventos, backend,  que nos permite gestionar una base de 
 
 | Método | Endpoint          | Descripción                          |
 |--------|-------------------|--------------------------------------|
-| GET    | `/api/events`        | Obtiene todas los eventos.         |
+| GET    | `/api/events`        | Obtiene todos los eventos.         |
 | GET    | `/api/events/:id`    | Obtiene un evento por su ID.      |
 | POST   | `/api/events`        | Crea una nuevo evento (autenticado).|
-| PATCH    | `/api/events/:id`    | Actualiza un evento (autenticado).|
+| PATCH  | `/api/events/:id`    | Actualiza un evento (autenticado).|
 | DELETE | `/api/events/:id`    | Elimina un evento (autenticado).  |
 
 
