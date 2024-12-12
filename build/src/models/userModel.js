@@ -27,14 +27,18 @@ const register = async (data) => {
 const login = async (data) => {
     try {
         const user = await User.findOne({ username: data.username });
-        if (!user || !(await bcryptjs_1.default.compare(data.password, user.password))) {
-            throw new Error("Eñ usario o la contraseña son incorrectas");
+        if (!user) {
+            throw new Error("El usuario no existe");
+        }
+        const passwordMatch = await bcryptjs_1.default.compare(data.password, user.password);
+        if (!passwordMatch) {
+            throw new Error("La contraseña es incorrecta");
         }
         const token = jsonwebtoken_1.default.sign({ id: user._id }, JWT_SECRET, { expiresIn: "1d" });
         return token;
     }
     catch (error) {
-        throw new Error("Error al inicar sesion");
+        throw new Error(`Error al iniciar sesión: ${error.message}`);
     }
 };
-exports.default = { User, login, register };
+exports.default = { login, register };

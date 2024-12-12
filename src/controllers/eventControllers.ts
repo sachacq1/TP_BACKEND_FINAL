@@ -17,6 +17,7 @@ const getEventById = async (req: Request, res: Response) => {
     try {
         const { id } = req.params
         const product = await eventModel.getEventById(id)
+        if (!product) { res.status(400).json({ status: 400, error: "No se encontro el evento" }) }
         res.status(200).json(product)
     } catch (error: any) {
         res.status(500).json({ status: 500, error: error.message })
@@ -28,6 +29,7 @@ const createEvent = async (req: Request, res: Response) => {
     const eventBody: EventBody = { name, description, date, addres }
     try {
         const newEvent = await eventModel.createEvent(eventBody)
+        if (!name || !description || !date || !addres) { res.status(400).json({ status: 400, error: "Faltan datos" }) }
         res.status(201).json(newEvent)
     } catch (error: any) {
 
@@ -42,6 +44,7 @@ const updateEvent = async (req: Request, res: Response) => {
         const { id } = req.params
         const { name, description, date, addres } = req.body
         const updateDataEvent = await eventModel.updateEvent(id, { name, description, date, addres })
+        if (!updateDataEvent) { res.status(400).json({ status: 400, error: "No se encontro el evento" }) }
         res.status(200).json(updateDataEvent)
     } catch (error: any) {
         res.status(500).json({ status: 500, error: error.message })
@@ -52,6 +55,7 @@ const deleteEvent = async (req: Request, res: Response) => {
     try {
         const { id } = req.params
         const deletedEvent = await eventModel.deleteEvent(id)
+        if (!deletedEvent) { res.status(400).json({ status: 400, error: "No se encontro el evento" }) }
         res.status(200).json(deletedEvent)
     } catch (error: any) {
         res.status(500).json({ status: 500, error: error.message })
