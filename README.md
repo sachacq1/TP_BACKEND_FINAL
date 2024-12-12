@@ -11,7 +11,6 @@ Proyecto de una api de Eventos, backend,  que nos permite gestionar una base de 
 - Autenticación mediante tokens JWT para proteger endpoints sensibles.
 - Validación de datos usando `Express-validation` y middleware personalizado.
 - Seguridad mejorada mediante `Helmet`.
-- Documentación de la API utilizando Swagger.
 
 ## Tecnologías utilizadas
 
@@ -20,7 +19,6 @@ Proyecto de una api de Eventos, backend,  que nos permite gestionar una base de 
 - **MongoDB** (con Mongoose)
 - **JWT** para autenticación
 - **Helmet** para seguridad
-- **Swagger** para documentación
 - **Express-validation** para validación
 
 ## Instalación
@@ -61,7 +59,7 @@ Proyecto de una api de Eventos, backend,  que nos permite gestionar una base de 
 | POST   | `/api/users/register` | Registra un nuevo usuario.       |
 | POST   | `/api/users/login`    | Inicia sesión y devuelve un token.|
 
-### Películas
+### Eventos
 
 | Método | Endpoint          | Descripción                          |
 |--------|-------------------|--------------------------------------|
@@ -71,13 +69,6 @@ Proyecto de una api de Eventos, backend,  que nos permite gestionar una base de 
 | PUT    | `/api/events/:id`    | Actualiza una película (autenticado).|
 | DELETE | `/api/events/:id`    | Elimina una película (autenticado).  |
 
-## Documentación
-
-Accede a la documentación Swagger en:
-
-```
-http://localhost:3000/api-docs
-```
 
 ## Seguridad
 
