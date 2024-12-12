@@ -63,7 +63,7 @@ Proyecto de una api de Eventos, backend,  que nos permite gestionar una base de 
 
 | Método | Endpoint          | Descripción                          |
 |--------|-------------------|--------------------------------------|
-| GET    | `/api/events`        | Obtiene todas las películas.         |
+| GET    | `/api/events`        | Obtiene todas los eventos.         |
 | GET    | `/api/events/:id`    | Obtiene un evento por su ID.      |
 | POST   | `/api/events`        | Crea una nuevo evento (autenticado).|
 | PATCH    | `/api/events/:id`    | Actualiza un evento (autenticado).|
