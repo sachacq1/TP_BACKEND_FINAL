@@ -10,6 +10,9 @@ const register = async (req, res) => {
         const { username, password } = req.body;
         const newUserBody = { username, password };
         const newUser = await userModel_1.default.register(newUserBody);
+        if (newUser === null) {
+            return res.status(400).json({ error: "El usuario ya existe" });
+        }
         res.json(newUser);
     }
     catch (error) {

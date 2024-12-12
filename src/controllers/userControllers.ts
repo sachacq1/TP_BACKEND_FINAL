@@ -2,12 +2,15 @@ import { Request, Response } from "express"
 import { UserData } from "../interfaces/userData"
 import userModel from "../models/userModel"
 
-const register = async (req: Request, res: Response) => {
+const register = async (req: Request, res: Response): Promise<any> => {
     try {
         const { username, password } = req.body
         const newUserBody: UserData = { username, password }
 
         const newUser = await userModel.register(newUserBody)
+        if (newUser === null) {
+            return res.status(400).json({ error: "El usuario ya existe" })
+        }
         res.json(newUser)
     } catch (error: any) {
         res.status(500).json({ error: error.message })

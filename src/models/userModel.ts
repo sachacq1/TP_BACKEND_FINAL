@@ -17,6 +17,10 @@ const User = mongoose.model("users", userSchema)
 
 const register = async (data: UserData) => {
     try {
+        const existingUser = await User.findOne({ username: data.username });
+        if (existingUser) {
+            return null;
+        }
         const hashPass = await bcryptjs.hash(data.password, 10)
         const newUser = new User({ username: data.username, password: hashPass })
         await newUser.save()
